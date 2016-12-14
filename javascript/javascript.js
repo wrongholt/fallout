@@ -29,7 +29,7 @@ End
   strong = Number(strong);
   hitPoints=Number(hitPoints);
   lvl = Number(lvl);
-  
+//page scroll so you don't have to do it yourself when the page goes down.  
  function pageScroll() {
     window.scrollBy(0,1);
     scrolldelay = setTimeout(pageScroll,10);
