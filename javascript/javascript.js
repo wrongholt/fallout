@@ -19,16 +19,22 @@ End
     lvl = 0,
     cont = 1, 
     hitPoints = 10,
-    pipe=0,
+    bat=0,
     gun = 0,
     loop = false,
+    audio = new Audio('media/maintheme.mp3'),
     wait = document.createElement("IMG");
   //make any inputs or variables that have numbers attached to Numbers  
   dex = Number(dex);
   strong = Number(strong);
   hitPoints=Number(hitPoints);
   lvl = Number(lvl);
-    
+  
+ function pageScroll() {
+    window.scrollBy(0,1);
+    scrolldelay = setTimeout(pageScroll,10);
+    audio.play();
+}   
 
 //insert stand by picture
 $(".falling").append("Throughout this adventure please just hit \"Enter or Return\" to continue.  Thank you and have fun.");
@@ -50,22 +56,23 @@ wait.setAttribute("src", 'images/pleasestandby.jpg');
         }
           break;
       case 2:
-        $(".falling").append("<h2>Chapter 1</h2><h3>" + characterName + ", " + typeHero + " Hero, Level " + (lvl + 1) + "</h3>");
-        $(".falling").append("<p>You awake from a long slumber! \"" + characterName + "! What are you doing we need you now mole rats are attacking everyone in the kitchen!\" </p>\n");
-        $(".falling").append("<p>You look around and you see a pipe or a crudely made .38 cal revolver.</p>");    
+        $(".falling").append("<h2>Chapter 1</h2><h3>" + characterName + ", " + typeHero + " Hero, Level " + (lvl + 1) + "</h3><embed src='images/maintheme.mp3' autostart='true' loop ='true'></embed>");
+        $(".falling").append("<p>You awake from a long slumber! You hear a woman screaming at you, \"" + characterName + "! What are you doing we need you now mole rats are attacking everyone in the kitchen!\" </p>\n");
+        $(".falling").append("<p>You sit up quickly and look around and you see a bat or a crudely made .38 cal revolver.</p>");    
+        $(".falling").append("<p><img src =\"images/bat.jpg\" height = '200' width = '300'>\n<img src = \"images/rustyrevolver.jpg\" height = '200' width = '200'></p>");    
           break;   
       case 3: 
-//create while loop making sure answers equal pipe or gun       
-       while(answers[0] !== "pipe" && answers[0] !== "gun"){
-        answers[0] = prompt("Do you pick the pipe or gun?");}
+//create while loop making sure answers equal bat or gun       
+       while(answers[0] !== "bat" && answers[0] !== "gun"){
+        answers[0] = prompt("Do you pick the bat or gun?");}
 //all if statements create a path for user        
-        if(answers[0]=='pipe' && typeHero=='strong'){
-          pipe = (3 + strong);
-          $(".falling").append("<p>You are grabbed as soon as you take hold of the pipe and you head towards the kitchen!</p>");
+        if(answers[0]=='bat' && typeHero=='strong'){
+          bat = (3 + strong);
+          $(".falling").append("<p>You are grabbed as soon as you take hold of the bat and you head towards the kitchen!</p>");
         }
-        if(answers[0]=='pipe' && typeHero=='dex'){
-          pipe = (1 + dex);
-          $(".falling").append("<p>You are grabbed as soon as you take hold of the pipe and you head towards the kitchen!</p>");
+        if(answers[0]=='bat' && typeHero=='dex'){
+          bat = (1 + dex);
+          $(".falling").append("<p>You are grabbed as soon as you take hold of the bat and you head towards the kitchen!</p>");
         }  
         if(answers[0]=='gun' && typeHero=='dex'){
           gun = (4 + dex)
@@ -87,11 +94,11 @@ wait.setAttribute("src", 'images/pleasestandby.jpg');
           $(".falling").append("<p>You run and scream like a little girl but you don't get far and run into a wall!  You are knocked out instantly and your body is now feeding grounds for the mole rats! You're Dead!</p><h2>Game Over!!!</h2><h2>Hit Points:" + (hitPoints-10) + "</h2><h2><a href =\"index.html\">Restart</a></h2>");
         hitPoints = (hitPoints-10);
         }
-        if(answers[1]=='kill' && answers[0]=='pipe' && typeHero=='strong'){
-          $(".falling").append("<p>You take your " + answers[0] + " slamming it into the mole rat and doing " + pipe + " points of damage and killing it instantly but there is one left.  Since you are a \"" + typeHero + "\" character, you have the grit to finish off the second with another massive blow!</p>");
+        if(answers[1]=='kill' && answers[0]=='bat' && typeHero=='strong'){
+          $(".falling").append("<p>You take your " + answers[0] + " slamming it into the mole rat and doing " + bat + " points of damage and killing it instantly but there is one left.  Since you are a \"" + typeHero + "\" character, you have the grit to finish off the second with another massive blow!</p>");
         }
-        if(answers[1]=='kill' && answers[0]=='pipe' && typeHero=='dex'){
-           $(".falling").append("<p>You suck you hit it but only doing " + pipe + " damage and the other mole rat starts gnawing on your leg killing you slowly! You're Dead!</p><h2>Game Over!!!</h2><h2>Hit Points:" + (hitPoints-10) + "</h2><h2><a href =\"index.html\">Restart</a></h2>");
+        if(answers[1]=='kill' && answers[0]=='bat' && typeHero=='dex'){
+           $(".falling").append("<p>You suck you hit it but only doing " + bat + " damage and the other mole rat starts gnawing on your leg killing you slowly! You're Dead!</p><h2>Game Over!!!</h2><h2>Hit Points:" + (hitPoints-10) + "</h2><h2><a href =\"index.html\">Restart</a></h2>");
         hitPoints = (hitPoints-10);
         }
         if(answers[1]=='kill' && answers[0]=='gun' && typeHero=='dex'){
@@ -111,7 +118,7 @@ wait.setAttribute("src", 'images/pleasestandby.jpg');
           $(".falling").append("<p>You look in one of the mole rats since it has a gaping hole in it and you find .38 rounds.  How did those get in there oh well this will be fun!  You load six rounds in the chambers.</p><p>You hear the door buzzer that’s not good! You run to the elevator *elevator music* *ding*. You run to the entrance.</p>");
         }
         if(answers[2]=='search' && typeHero=='strong'){  
-          $(".falling").append("<p>You search the cupboards and find duct tape and nails. Woohoo what can I do with these I wonder? </p><p>You hear the door buzzer that’s not good! You run to the elevator *elevator music* *ding*. You run to the entrance.</p>");
+          $(".falling").append("<p>You search the cupboards nails and hammer. Woohoo what can I do with these I wonder? </p><p>You hear the door buzzer that’s not good! You run to the elevator *elevator music* *ding*. You run to the entrance.</p>");
         }
         if(answers[2]=='continue'){
           $(".falling").append("<p>You hear something you go around the corner.</p><p>You hear the door buzzer that’s not good! You run to the elevator *elevator music* *ding*. You run to the entrance.</p>");
@@ -122,8 +129,8 @@ wait.setAttribute("src", 'images/pleasestandby.jpg');
           $(".falling").append("<p>You are smart and you take a position behind some boxes you see others that follow your lead.</p><p>As you wait you see sparks fly from the vault door, they are cutting through!  The door falls to the ground with a great bang and fills the room with smoke. You hear multiple screams like a crazed battle cry and the room gets filled with raiders. Many of them fall by your precise aim and bullets flying. They exchange a few blows to you and your friends and as the last raider falls by your bullet to the head, you did it you made it through alive. </p> <h2>End of Chapter 1!</h2><h2>Hit Points:" + (hitPoints-5) + "</h2>");
         }
         if(answers[2]=='search' && typeHero=='strong'){
-          pipe=(pipe +2)
-          $(".falling").append("<p>As you wait you take the nails and duct tape you found and affix them to the pipe.</p><p>As you wait you see sparks fly from the vault door, they are cutting through!  The door falls to the ground with a great bang and fills the room with smoke. You hear multiple screams like a crazed battle cry and the room gets filled with raiders. Many of them fall by your precision strikes and your massive blows. They exchange a few blows to you and your friends and as the last raider falls by your bullet to the head, you did it you made it through alive. </p> <h2>End of Chapter 1!</h2><h2>Hit Points:" + (hitPoints-4) + "</h2>");
+          bat=(bat +2)
+          $(".falling").append("<p>As you wait you take the nails and hammer that you found and hammer them into the bat.<br><img src ='images/batnails.jpg' height ='200' width='300'></p><p>As you wait you see sparks fly from the vault door, they are cutting through!  The door falls to the ground with a great bang and fills the room with smoke. You hear multiple screams like a crazed battle cry and the room gets filled with raiders. Many of them fall by your precision strikes and your massive blows. They exchange a few blows to you and your friends and as the last raider falls by your bullet to the head, you did it you made it through alive. </p> <h2>End of Chapter 1!</h2><h2>Hit Points:" + (hitPoints-4) + "</h2>");
         }
         if(answers[2]=='continue' && typeHero=='dex'){
           $(".falling").append("<p>You start to panic, since you have nothing to defend yourself with.  So, you run to the bathroom and cower next to the half working toilet.  You hear gun fire and a lot of screams, after it all dies down you get enough courage to get up and leave as soon as you leave the bathroom.  Your head gets cleaved off and you are dead! </p><h2>Game Over!!!</h2><h2>Hit Points:" + (hitPoints-10) + "</h2><h2><a href =\"index.html\">Restart</a></h2>");
@@ -137,6 +144,7 @@ wait.setAttribute("src", 'images/pleasestandby.jpg');
   cont++;
   }
   })
+  pageScroll();
      //document.getElementById(".falling").innerHTML = output;//
 
 
