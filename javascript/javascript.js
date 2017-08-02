@@ -1,4 +1,4 @@
-/*
+ /*
 falloutGame
 Prompt for Character name
 Prompt for Strong or Dex hero
