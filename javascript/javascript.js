@@ -67,12 +67,12 @@ function setup(){
  document.body.appendChild(wait);
 
 function setupTwo(){
-    characterName = prompt("What is your hero named?");
-    if(characterName == null){
-        prompt("Please enter a hero name.");
-    }else{
-        start();
-    } 
+    $(".falling").append("<form class='form'>Character Name:<br><input type='text' id='characterName'><br><input type='submit' value='Enter'></form>");
+    characterName = document.getElementById('characterName');
+   $('.form').on('submit', function () {
+    start();
+    return false;
+});
 }
 function start(){
  $(document).click(function () {
@@ -85,7 +85,7 @@ function start(){
          case 2:
              $(".falling").append("<p>You awake from a long slumber! You hear a woman screaming at you. \"" + characterName + "! What are you doing we need you now mole rats are attacking everyone in the kitchen!\" </p>\n");
              $(".falling").append("<p>You sit up quickly and look around and you see a bat or a crudely made .38 cal revolver.</p>");
-             $(".falling").append("<p><img id = 'bat' src =\"images/bat.jpg\" height = '200' width = '300'>\n<img id = 'gun' src = \"images/rustyrevolver.jpg\" height = '200' width = '200'><br>Please select an item by clicking on it.</p>");
+             $(".falling").append("<div class='container'>   <div class='picture'><img id = 'bat' src =\"images/bat.jpg\" height ='200' width ='300'><div class='middle'><div class='text'>Bat</div></div></div><div class='picture'><img id = 'gun' src = \"images/rustyrevolver.jpg\" height ='200' width ='200'><div class='middle'><div class='text'>Gun</div></div></div><br>Please select an item by clicking on it.</div>");
              $("#gun").click(function () {
                  answers[0] = "gun";
              });
@@ -121,9 +121,16 @@ function start(){
              $(".falling").append("<p>As you bend the corner of into the kitchen, someone comes running out flailing their arms like they were on fire and almost runs you over! \"Watch it " + characterName + " can't you see I am running here!\" You peer into the kitchen and see two mole rats...</p>");
              break;
          case 5:
+            $(".falling").append("<div class='container'><div class='middle'><div class='button'><div id='kill'>Kill!</div></div>\n<div class='middle'><div class='button'><div id='run'>Run!</div></div></div>"); 
+
              //create while loop making sure answers equal kill or run      
-             while (answers[1] !== "kill" && answers[1] !== "run") {
-                 answers[1] = prompt("Do you run or try to kill them?");
+             while (answers[1] !== "kill" && answers[1] !== "run") {             
+            $("#kill").click(function () {
+                 answers[1] = "kill";
+             });
+             $("#run").click(function () {
+                 answers[1] = "run";
+             });
              }
              if (answers[1] == 'run') {
                  $(".falling").append("<p>You run and scream like a little girl but you don't get far and run into a wall!  You are knocked out instantly and your body is now feeding grounds for the mole rats! You're Dead!</p><h2>Game Over!!!</h2><h2>Hit Points:" + (hitPoints - 10) + "</h2><h2><a href =\"index.html\">Restart</a></h2>");
