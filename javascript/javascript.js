@@ -41,18 +41,23 @@ setup();
 function setup(){
             $("#strong").click(function () {
                  typeHero = "strong";
+                $(".form").show();
                 setupTwo();
              });
              $("#dex").click(function () {
                  typeHero = "dex";
+                 $(".form").show();
                  setupTwo();
              });
              $("#smart").click(function () {
                  typeHero = "smart";
+                 $(".form").show();
                  setupTwo();
+                 
              });
              $("#charisma").click(function () {
                  typeHero = "charisma";
+                 $(".form").show();
                  setupTwo();
              });
 
@@ -67,9 +72,9 @@ function setup(){
  document.body.appendChild(wait);
 
 function setupTwo(){
-    $(".falling").append("<form class='form'>Character Name:<br><input type='text' id='characterName'><br><input type='submit' value='Enter'></form>");
-    characterName = document.getElementById('characterName');
-   $('.form').on('submit', function () {
+    $('.form').on('submit', function () {
+    characterName = $("#characterName").val();
+   
     start();
     return false;
 });
