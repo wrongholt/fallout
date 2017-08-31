@@ -1,50 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Fallout Text Story</title>
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="jquery/jquery-2.2.4.min.js">   
+    <script type="text/javascript" src="jquery/jquery-2.2.4.min.js">
+
+
     </script>
-  </head>
-  
-  <body>
-  <div id="wrapper">
-    <div class="falling">
-    
-      <img src="images/2000px-Fallout_logo.svg.png" width = "300" height="100"><br>
-    <div class='container'>   
-    
-        <div class='picture'>
-        <img class = 'char' id = 'strong' src ="images/strong.jpg"><div class='middle'><div class='text'>Strong</div></div>
-        </div>  
-        <div class='picture'>
-            <img class = 'char' id = 'smart' src ="images/smart.jpg" ><div class='middle'><div class='text'>Smart</div></div></div>
-        <div class='picture'>
-            <img class = 'char' id = 'dex' src ="images/dex.jpg"><div class='middle'><div class='text'>Dexterity</div></div></div>
-        <div class='picture'>
-            <img class = 'char' id = 'charisma' src ="images/charisma.jpg"><div class='middle'><div class='text'>Charisma</div></div></div>
-        <br>Please select an item by clicking on it.
-      </div>    
+</head>
 
-      <br>
-        <form class='form'>
-            Character Name:<br>
-            <input type='text' rv-placeholder="field.placeholder" id='characterName'><br>
-            <input type='submit' value='Enter' id='submitButton'>
-        </form>
+<body>
+    <div id="wrapper">
+        <div class="falling">
 
-      </div>
-  </div>
-      
-        
-      <script type="text/javascript" src="javascript/javascript.js"></script>
+            <img src="images/2000px-Fallout_logo.svg.png" width="300" height="100"><br>
+            <div class='container'>
+
+                <div class='picture'>
+                    <img class='char' id='strong' src="images/strong.jpg">
+                    <div class='middle'>
+                        <div class='text'>Strong</div>
+                    </div>
+                </div>
+                <div class='picture'>
+                    <img class='char' id='smart' src="images/smart.jpg">
+                    <div class='middle'>
+                        <div class='text'>Smart</div>
+                    </div>
+                </div>
+                <div class='picture'>
+                    <img class='char' id='dex' src="images/dex.jpg">
+                    <div class='middle'>
+                        <div class='text'>Dexterity</div>
+                    </div>
+                </div>
+                <div class='picture'>
+                    <img class='char' id='charisma' src="images/charisma.jpg">
+                    <div class='middle'>
+                        <div class='text'>Charisma</div>
+                    </div>
+                </div>
+                <br>Please select an item by clicking on it.
+            </div>
+
+            <br>
+            <form class='form'>
+                Character Name:<br>
+                <input type='text' id='characterName'><br>
+                <input type='submit' value='Enter' id='submitButton'>
+            </form>
+
+        </div>
+    </div>
+
+
+
     <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-      <script src="javascript/rivets.js"></script>
-        <script src="javascript/jquery.ui.touch-punch.min.js"></script>
-        <script>$('#widget').draggable();</script>
+    <script src="javascript/rivets.js"></script>
+    <script src="javascript/jquery.ui.touch-punch.min.js"></script>
+    <script>
+        $('#widget').draggable();
 
-    
-  </body>
+    </script>
+    <script type="text/javascript" src="javascript/javascript.js"></script>
+
+</body>
+
 </html>
