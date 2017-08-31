@@ -178,3 +178,9 @@ p{
 .button:hover .middle {
   opacity: 1;
 }
+
+
+.form{
+    display: none;    
+}
+
