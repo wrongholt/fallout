@@ -40,6 +40,8 @@ body {
     background-size: cover;
     font-family: Arial, Verdana, sans-serif;
     text-align: center;
+    margin: auto;
+    display: block;
 }
 
 h2,
@@ -65,7 +67,7 @@ p {
     border-radius: 5px;
     box-shadow: 0.125rem 0.125rem 0.25rem #000000);
     padding: 1.25rem;
-    margin: 0.625 auto auto;
+    margin: 0 auto;
     max-width: 60rem;
 }
 
@@ -82,6 +84,7 @@ p {
     width: 100%;
     box-shadow: 0rem .25rem .625rem .25rem #111;
     background-color: antiquewhite;
+    z-index: 2;
 }
 
 .char {
